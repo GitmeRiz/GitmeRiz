@@ -5,7 +5,7 @@
           
           <!-- Logo -->
           <div>
-            <img src="@/assets/GitmeRiz Logo Black.png" alt="Logo" class="h-10 w-auto"/>
+            <img src="@/assets/GitmeRizBlack.png" alt="Logo" class="h-10 w-auto"/>
           </div>
           
           <!-- Social Icons -->
