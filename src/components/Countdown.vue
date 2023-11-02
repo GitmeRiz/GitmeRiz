@@ -82,7 +82,7 @@ export default {
     methods: {
         calculateTargetTime() {
             const target = new Date();
-            target.setDate(target.getDate() + 46);
+            target.setDate(target.getDate() + 37);
             target.setHours(0, 0, 0, 0);
             return target.getTime();
         },
