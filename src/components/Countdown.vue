@@ -11,9 +11,11 @@
                     <p class="text-lg md:text-xl">{{ unit.label }}</p>
                 </div>
             </div>
-<div class="mt-2 md:mt-4 flex justify-center items-center">
+            <div class="mt-2 md:mt-4 flex justify-center items-center">
                 <label class="block text-white font-bold mb-2 md:hidden" for="displayMode">Choose Mode:</label>
-                <select @change="setDisplayMode($event.target.value)" v-model="displayMode" class="block appearance-none w-full md:w-auto bg-white text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 select-hover">                    <option value="detailed">Show Detail Time</option>
+                <select @change="setDisplayMode($event.target.value)" v-model="displayMode"
+                    class="block appearance-none w-full md:w-auto bg-white text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 select-hover">
+                    <option value="detailed">Show Detail Time</option>
                     <option value="hours">Show Total Hours</option>
                     <option value="minutes">Show Total Minutes</option>
                     <option value="seconds">Show Total Seconds</option>
@@ -82,7 +84,7 @@ export default {
     methods: {
         calculateTargetTime() {
             const target = new Date();
-            target.setDate(target.getDate() + 37);
+            target.setDate(target.getDate() + 34);
             target.setHours(0, 0, 0, 0);
             return target.getTime();
         },
@@ -96,7 +98,7 @@ export default {
                 return;
             }
 
-            this.timeUnits[0].value = Math.floor(distance / (1000 * 60 * 60 * 24));
+            this.timeUnits[0].value = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
             this.timeUnits[1].value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             this.timeUnits[2].value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             this.timeUnits[3].value = Math.floor((distance % (1000 * 60)) / 1000);
