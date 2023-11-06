@@ -89,6 +89,11 @@ export default {
             return target.getTime();
         },
         updateTime() {
+            // Recalculate targetTime every day
+            if (new Date().getHours() === 0 && new Date().getMinutes() === 0 && new Date().getSeconds() === 0) {
+                this.targetTime = this.calculateTargetTime();
+            }
+
             const now = new Date().getTime();
             const distance = this.targetTime - now;
 
