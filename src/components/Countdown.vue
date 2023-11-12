@@ -123,7 +123,7 @@ export default {
   methods: {
     calculateTargetTime() {
       const target = new Date();
-      target.setDate(target.getDate() + 28);
+      target.setDate(target.getDate() + 26);
       target.setHours(0, 0, 0, 0);
 
       // If the current time has already passed the target time for today,
